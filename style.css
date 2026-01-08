@@ -8,6 +8,11 @@ body {
     text-align:center;
     background-color: BLACK;
 }
+
+h2 {
+    font-size: 30px;
+}
+
 img {
     margin: 25px;
 }
@@ -24,20 +29,109 @@ img {
 
 .image {
     transition: all 1s ease;
+    animation-name: imageAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 
 }
 
 .image:hover {
     height: 650px;
-    transform: rotate(5deg);
+    /* transform: rotate(5deg); */
 
 }
 
 .image2 {
     transition: all 1s ease;
+    animation-name: imageAnimation2;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 .image2:hover {
     height: 650px;
-    transform: rotate(-5deg);
+    /* transform: rotate(-5deg); */
+}
+
+/* .head {
+    transition: all 1s ease;
+}
+
+.head:hover {
+    height: 250px;
+    transform: rotate(360deg);
+} */
+
+/* .topbar {
+    border-style: solid white 2px;
+    height: 200px;
+    background-color: black;
+    position: sticky;vvvv
+    top: 0;
+    z-index: 1;
+} */
+
+#anicircle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    display: inline-block;
+    position: absolute;
+    top: 25px;
+    left: 5%;
+    z-index: -1;
+    background-color: #181818;
+    animation-name: circleAnimation;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#anicircle2 {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    display: inline-block;
+    position: absolute;
+    top: 25px;
+    right: 5%;
+    z-index: -1;
+    background-color: #181818;
+    animation-name: circleAnimation2;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes circleAnimation {
+    from {left: 5%;}
+    to {left: 90%;}
+}
+
+@keyframes circleAnimation2 {
+    from {right: 5%;}
+    to {right: 90%;}
+}
+
+@keyframes imageAnimation {
+    from {transform: rotate(-1deg);}
+    to {transform: rotate(1deg);}
+}
+
+@keyframes imageAnimation2 {
+    from {transform: rotate(1deg);}
+    to {transform: rotate(-1deg);}
+}
+
+@keyframes h1Animation {
+    from {transform: rotate(1deg);}
+    to {transform: rotate(-1deg);}
 }
