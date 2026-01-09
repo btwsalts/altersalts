@@ -9,6 +9,14 @@ body {
     background-color: BLACK;
 }
 
+h1 {
+    font-size: 30px;
+    animation-name: h1Animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+}
+
 h2 {
     font-size: 30px;
 }
@@ -18,6 +26,7 @@ img {
 }
 
 img {
+    border: solid whitesmoke 4px;
 -moz-box-shadow: 0 0 10px #fff;
 -webkit-box-shadow: 0 0 10px #fff;
 box-shadow: 0px 0px 15px #fff;
@@ -25,6 +34,39 @@ box-shadow: 0px 0px 15px #fff;
 
 img {
     border-radius: 10px;
+}
+
+#head {
+    box-shadow: none;
+    border: none;
+    margin-bottom: -25px;
+    margin-top: -25px;
+}
+
+#head2 {
+    box-shadow: none;
+    border: none;
+    margin-bottom: -25px;
+    margin-top: -25px;
+    margin-left: -50px;
+    display: inline-block;
+}
+
+#head3 {
+    box-shadow: none;
+    border: none;
+    margin-bottom: -25px;
+    margin-top: -25px;
+    margin-right: -50px;
+    display: inline-block;
+}
+
+#head4 {
+    box-shadow: none;
+    border: none;
+    margin-bottom: -100px;
+    margin-top: -90px;
+    display: inline-block;
 }
 
 .image {
@@ -75,14 +117,14 @@ img {
     z-index: 1;
 } */
 
-#anicircle {
+/* #anicircle {
     height: 100px;
     width: 100px;
     border-radius: 50%;
     margin-bottom: 25px;
     display: inline-block;
     position: absolute;
-    top: 25px;
+    top: 35px;
     left: 5%;
     z-index: -1;
     background-color: #181818;
@@ -100,7 +142,7 @@ img {
     margin-bottom: 25px;
     display: inline-block;
     position: absolute;
-    top: 25px;
+    top: 35px;
     right: 5%;
     z-index: -1;
     background-color: #181818;
@@ -109,9 +151,9 @@ img {
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
+} */
 
-@keyframes circleAnimation {
+/* @keyframes circleAnimation {
     from {left: 5%;}
     to {left: 90%;}
 }
@@ -119,7 +161,7 @@ img {
 @keyframes circleAnimation2 {
     from {right: 5%;}
     to {right: 90%;}
-}
+} */
 
 @keyframes imageAnimation {
     from {transform: rotate(-1deg);}
@@ -132,6 +174,6 @@ img {
 }
 
 @keyframes h1Animation {
-    from {transform: rotate(1deg);}
-    to {transform: rotate(-1deg);}
+    from {font-size: 0px;}
+    to {font-size: 30px;}
 }
