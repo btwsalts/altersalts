@@ -27,13 +27,22 @@ img {
 
 img {
     border: solid whitesmoke 4px;
--moz-box-shadow: 0 0 10px #fff;
--webkit-box-shadow: 0 0 10px #fff;
-box-shadow: 0px 0px 15px #fff;
+    -moz-box-shadow: 0 0 10px #fff;
+    -webkit-box-shadow: 0 0 10px #fff;
+    box-shadow: 0px 0px 15px #fff;
 }
 
 img {
     border-radius: 10px;
+}
+
+#kvid {
+    border-bottom: solid whitesmoke 4px;
+    margin-bottom: 25px;
+    -moz-box-shadow: 0 0 10px #fff;
+    -webkit-box-shadow: 0 0 10px #fff;
+    box-shadow: 0px 0px 15px #fff;
+    
 }
 
 #head {
