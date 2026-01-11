@@ -187,7 +187,7 @@ img {
     to {font-size: 30px;}
 }
 
-@media (min-width:0px) and (max-width:400px) {
+@media (min-width:0px) and (max-width:600px) {
     #kvid {
         width: 400px;
     }
