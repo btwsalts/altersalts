@@ -186,3 +186,34 @@ img {
     from {font-size: 0px;}
     to {font-size: 30px;}
 }
+
+@media (min-width:0px) and (max-width:400px) {
+    #kvid {
+        width: 400px;
+    }
+
+    #head {
+        height: 100px;
+        width: 130px;
+    }
+    
+    #head2 {
+        height: 100px;
+    }
+
+    #head3 {
+        height: 100px;
+    }
+
+    .image {
+        height: 350px;
+    }
+
+    .image2 {
+        height: 350px;
+    }
+
+    h2 {
+        font-size: 6.5px;
+    }
+}
