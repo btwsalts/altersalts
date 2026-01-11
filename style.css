@@ -189,7 +189,7 @@ img {
 
 @media (min-width:0px) and (max-width:600px) {
     #kvid {
-        width: 400px;
+        width: 450px;
     }
 
     #head {
@@ -214,6 +214,49 @@ img {
     }
 
     h2 {
-        font-size: 6.5px;
+        font-size: 8px;
+    }
+
+    h1 {
+    font-size: 20px;
+    animation-name: h1Animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    }
+
+    @keyframes h1Animation {
+    from {font-size: 0px;}
+    to {font-size: 20px;}
+    }
+
+    .image {
+    transition: all 1s ease;
+    animation-name: imageAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+}
+
+.image:hover {
+    height: 450px;
+    /* transform: rotate(5deg); */
+
+}
+
+.image2 {
+    transition: all 1s ease;
+    animation-name: imageAnimation2;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.image2:hover {
+    height: 450px;
+    /* transform: rotate(-5deg); */
     }
 }
