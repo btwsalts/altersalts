@@ -183,7 +183,7 @@ img {
     }
 
     h2 {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     h1 {
@@ -229,13 +229,17 @@ img {
     }
 
 .options {
-    font-size: 7px;
-    margin-left: 25px;
+    font-size: 8px;
+    margin-left: 20px;
 }
 
 .options:hover {
-    font-size: 8px;
+    font-size: 8.5px;
 
+}
+
+.nav-options {
+    margin-left: 10px;
 }
 
 }
