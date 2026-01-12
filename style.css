@@ -3,6 +3,39 @@
     padding: 0;
     font-family: monospace, Arial, sans-serif;
 }
+
+.options {
+    transition: all 0.5s ease;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    text-align: left;
+    margin-left: 180px;
+
+}
+
+.options:hover {
+    font-size: 22px;
+
+}
+
+.nav-options {
+    display: flex;
+    margin-bottom: 10px;
+    align-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+p {
+    margin-left: 5px;
+}
+
+
 body {
     color: white;
     text-align:center;
@@ -90,7 +123,6 @@ img {
 
 .image:hover {
     height: 650px;
-    /* transform: rotate(5deg); */
 
 }
 
@@ -105,72 +137,9 @@ img {
 
 .image2:hover {
     height: 650px;
-    /* transform: rotate(-5deg); */
 }
 
-/* .head {
-    transition: all 1s ease;
-}
 
-.head:hover {
-    height: 250px;
-    transform: rotate(360deg);
-} */
-
-/* .topbar {
-    border-style: solid white 2px;
-    height: 200px;
-    background-color: black;
-    position: sticky;vvvv
-    top: 0;
-    z-index: 1;
-} */
-
-/* #anicircle {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    margin-bottom: 25px;
-    display: inline-block;
-    position: absolute;
-    top: 35px;
-    left: 5%;
-    z-index: -1;
-    background-color: #181818;
-    animation-name: circleAnimation;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#anicircle2 {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    margin-bottom: 25px;
-    display: inline-block;
-    position: absolute;
-    top: 35px;
-    right: 5%;
-    z-index: -1;
-    background-color: #181818;
-    animation-name: circleAnimation2;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-} */
-
-/* @keyframes circleAnimation {
-    from {left: 5%;}
-    to {left: 90%;}
-}
-
-@keyframes circleAnimation2 {
-    from {right: 5%;}
-    to {right: 90%;}
-} */
 
 @keyframes imageAnimation {
     from {transform: rotate(-1deg);}
@@ -242,7 +211,6 @@ img {
 
 .image:hover {
     height: 450px;
-    /* transform: rotate(5deg); */
 
 }
 
@@ -257,6 +225,17 @@ img {
 
 .image2:hover {
     height: 450px;
-    /* transform: rotate(-5deg); */
+    
     }
+
+.options {
+    font-size: 7px;
+    margin-left: 25px;
+}
+
+.options:hover {
+    font-size: 8px;
+
+}
+
 }
