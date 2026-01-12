@@ -230,6 +230,90 @@ img {
 
 .options {
     font-size: 8px;
+    margin-left: 15px;
+}
+
+.options:hover {
+    font-size: 8.5px;
+
+}
+
+}
+
+@media (min-width:601px) and (max-width:800px) {
+    #kvid {
+        width: 416px;
+    }
+
+    #head {
+        height: 100px;
+        width: 130px;
+    }
+    
+    #head2 {
+        height: 100px;
+    }
+
+    #head3 {
+        height: 100px;
+    }
+
+    .image {
+        height: 350px;
+    }
+
+    .image2 {
+        height: 350px;
+    }
+
+    h2 {
+        font-size: 11px;
+    }
+
+    h1 {
+    font-size: 20px;
+    animation-name: h1Animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    }
+
+    @keyframes h1Animation {
+    from {font-size: 0px;}
+    to {font-size: 20px;}
+    }
+
+    .image {
+    transition: all 1s ease;
+    animation-name: imageAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+}
+
+.image:hover {
+    height: 450px;
+
+}
+
+.image2 {
+    transition: all 1s ease;
+    animation-name: imageAnimation2;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.image2:hover {
+    height: 450px;
+    
+    }
+
+.options {
+    font-size: 8px;
     margin-left: 20px;
 }
 
