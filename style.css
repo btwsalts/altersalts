@@ -1,325 +1,177 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: monospace, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace, Arial, sans-serif;
 }
-
-.options {
-    transition: all 0.5s ease;
-    display: flex;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    text-align: left;
-    margin-left: 180px;
-
-}
-
-.options:hover {
-    font-size: 22px;
-
-}
-
-.nav-options {
-    display: flex;
-    margin-bottom: 10px;
-    align-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-p {
-    margin-left: 5px;
-}
-
 
 body {
-    color: white;
-    text-align:center;
-    background-color: BLACK;
+  background-color: black;
+  color: white;
+  text-align: center;
 }
 
-h1 {
-    font-size: 30px;
-    animation-name: h1Animation;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-}
-
-h2 {
-    font-size: 30px;
-}
-
-img {
-    margin: 25px;
-}
-
-img {
-    border: solid whitesmoke 4px;
-    -moz-box-shadow: 0 0 10px #fff;
-    -webkit-box-shadow: 0 0 10px #fff;
-    box-shadow: 0px 0px 15px #fff;
-}
-
-img {
-    border-radius: 10px;
-}
-
+/* Background Video */
 #kvid {
-    border-bottom: solid whitesmoke 4px;
-    margin-bottom: 25px;
-    -moz-box-shadow: 0 0 10px #fff;
-    -webkit-box-shadow: 0 0 10px #fff;
-    box-shadow: 0px 0px 15px #fff;
-    
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
-#head {
-    box-shadow: none;
-    border: none;
-    margin-bottom: -25px;
-    margin-top: -25px;
+/* Header */
+.topbar {
+  max-width: 1700px;
+  margin: auto;
+  height: 350px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 35%);
+}
+
+.header-graphics img {
+  height: 150px;
+  margin-top: -20px;
+  margin-bottom: -35px;
+  border: none;
+  box-shadow: none;
 }
 
 #head2 {
-    box-shadow: none;
-    border: none;
-    margin-bottom: -25px;
-    margin-top: -25px;
-    margin-left: -50px;
-    display: inline-block;
+  margin-left: -45px;
 }
-
 #head3 {
-    box-shadow: none;
-    border: none;
-    margin-bottom: -25px;
-    margin-top: -25px;
-    margin-right: -50px;
-    display: inline-block;
+  margin-right: -45px;
 }
 
-#head4 {
-    box-shadow: none;
-    border: none;
-    margin-bottom: -100px;
-    margin-top: -90px;
-    display: inline-block;
+/* Navigation */
+.nav-options {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  gap: 100px;
+  font-weight: bold;
 }
 
-.image {
-    transition: all 1s ease;
-    animation-name: imageAnimation;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-
+.options {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  gap: 6px;
+  color: white;
+  text-decoration: none;
+  transition: font-size 0.3s ease;
 }
 
-.image:hover {
-    height: 650px;
+.options:hover {
+  font-size: 22px;
+}
 
+/* Divider */
+.divider {
+  font-size: 30px;
+}
+
+/* Title */
+.title {
+  font-size: 30px;
+  animation: h1Animation 1s ease-in-out;
+}
+
+/* Gallery */
+.tail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+img {
+  margin: 25px;
+  border-radius: 10px;
+  border: 4px solid whitesmoke;
+  box-shadow: 0 0 15px #fff;
+}
+
+/* Image Animations */
+.image,
+.image2 {
+  height: 600px;
+  transition: all 1s ease;
+  animation: float 2s ease-in-out infinite alternate;
 }
 
 .image2 {
-    transition: all 1s ease;
-    animation-name: imageAnimation2;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  animation-direction: alternate-reverse;
 }
 
+.image:hover,
 .image2:hover {
-    height: 650px;
+  height: 650px;
 }
 
-
-
-@keyframes imageAnimation {
-    from {transform: rotate(-1deg);}
-    to {transform: rotate(1deg);}
-}
-
-@keyframes imageAnimation2 {
-    from {transform: rotate(1deg);}
-    to {transform: rotate(-1deg);}
+@keyframes float {
+  from {
+    transform: rotate(-1deg);
+  }
+  to {
+    transform: rotate(1deg);
+  }
 }
 
 @keyframes h1Animation {
-    from {font-size: 0px;}
-    to {font-size: 30px;}
+  from {
+    font-size: 0;
+  }
+  to {
+    font-size: 30px;
+  }
 }
 
-@media (min-width:0px) and (max-width:600px) {
-    #kvid {
-        width: 416px;
-    }
+/* ---------------- MEDIA QUERIES (UNCHANGED WIDTHS) ---------------- */
 
-    #head {
-        height: 100px;
-        width: 130px;
-    }
-    
-    #head2 {
-        height: 100px;
-    }
-
-    #head3 {
-        height: 100px;
-    }
-
-    .image {
-        height: 350px;
-    }
-
-    .image2 {
-        height: 350px;
-    }
-
-    h2 {
-        font-size: 11px;
-    }
-
-    h1 {
+@media (min-width: 0px) and (max-width: 600px) {
+  .header-graphics img {
+    height: 100px;
+  }
+  .image,
+  .image2 {
+    height: 350px;
+  }
+  .image:hover,
+  .image2:hover {
+    height: 400px;
+  }
+  .divider {
+    font-size: 11px;
+  }
+  .title {
     font-size: 20px;
-    animation-name: h1Animation;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-    }
-
-    @keyframes h1Animation {
-    from {font-size: 0px;}
-    to {font-size: 20px;}
-    }
-
-    .image {
-    transition: all 1s ease;
-    animation-name: imageAnimation;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-
-}
-
-.image:hover {
-    height: 400px;
-
-}
-
-.image2 {
-    transition: all 1s ease;
-    animation-name: imageAnimation2;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-.image2:hover {
-    height: 400px;
-    
-    }
-
-.options {
+  }
+  .options {
     font-size: 8px;
-    margin-left: 20px;
+  }
 }
 
-.options:hover {
-    font-size: 8.5px;
-
-}
-
-}
-
-@media (min-width:601px) and (max-width:800px) {
-    #kvid {
-        width: 736px;
-    }
-
-    #head {
-        height: 100px;
-        width: 130px;
-    }
-    
-    #head2 {
-        height: 100px;
-    }
-
-    #head3 {
-        height: 100px;
-    }
-
-    .image {
-        height: 200px;
-    }
-
-    .image2 {
-        height: 200px;
-    }
-
-    h2 {
-        font-size: 13.5px;
-    }
-
-    h1 {
+@media (min-width: 601px) and (max-width: 800px) {
+  .header-graphics img {
+    height: 100px;
+  }
+  .image,
+  .image2 {
+    height: 200px;
+  }
+  .image:hover,
+  .image2:hover {
+    height: 250px;
+  }
+  .divider {
+    font-size: 13.5px;
+  }
+  .title {
     font-size: 20px;
-    animation-name: h1Animation;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-    }
-
-    @keyframes h1Animation {
-    from {font-size: 0px;}
-    to {font-size: 20px;}
-    }
-
-    .image {
-    transition: all 1s ease;
-    animation-name: imageAnimation;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-
-}
-
-.image:hover {
-    height: 250px;
-
-}
-
-.image2 {
-    transition: all 1s ease;
-    animation-name: imageAnimation2;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-.image2:hover {
-    height: 250px;
-    
-    }
-
-.options {
+  }
+  .options {
     font-size: 16px;
-    margin-left: 30px;
-}
-
-.options:hover {
-    font-size: 16.5px;
-
-}
-
+  }
 }
