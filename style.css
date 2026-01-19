@@ -11,6 +11,88 @@ body {
   text-align: center;
 }
 
+/* ---------- SPLASH SCREEN ---------- */
+#splash {
+  position: fixed;
+  inset: 0;
+
+  .splash-text {
+    position: relative; /* anchor for copyright */
+    font-size: clamp(28px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: 0.35em;
+    color: grey;
+  }
+
+  /* small top-right copyright */
+  .splash-text .copyright {
+    position: absolute;
+    top: -0.6em;
+    right: -0.6em;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  /* START SOLID WHITE */
+  background-color: rgba(255, 255, 255, 1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+  pointer-events: none;
+
+  /* Animate BACKGROUND, not opacity */
+  animation: splashBgFade 3.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.splash-text {
+  font-size: clamp(28px, 6vw, 72px);
+  font-weight: 900;
+  letter-spacing: 0.35em;
+  color: grey;
+
+  animation: textFade 2.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+/* THIS is what reveals the site behind */
+@keyframes splashBgFade {
+  0% {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  60% {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  85% {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes textFade {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
 /* Background Video */
 #kvid {
   position: fixed;
