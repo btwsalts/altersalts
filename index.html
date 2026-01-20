@@ -16,6 +16,24 @@
   </head>
 
   <body>
+    <button id="audioToggle">🔊 Make it Rain</button>
+
+    <audio id="rainAudio" loop>
+      <source src="rain.mp3" type="audio/mpeg" />
+    </audio>
+    <div id="password-screen">
+      <div class="password-box">
+        <p class="password-label">Enter Password</p>
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="••••••••"
+          autocomplete="off"
+        />
+        <button id="passwordBtn">Enter</button>
+        <p id="passwordError">Wrong password</p>
+      </div>
+    </div>
     <div id="splash">
       <div class="splash-text">
         ALTERSALTS
@@ -39,7 +57,7 @@
         <img id="head2" src="rightwing.svg" alt="" />
       </div>
 
-      <h2 class="divider">⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘</h2>
+      <h2 class="divider">⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘</h2>
 
       <nav class="nav-options">
         <a class="options" href="Aboutme.html">
@@ -60,7 +78,7 @@
         </a>
       </nav>
 
-      <h2 class="divider">⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘</h2>
+      <h2 class="divider">⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘⫘</h2>
 
       <h1 class="title">images.exe</h1>
     </header>
@@ -152,6 +170,10 @@
       />
       <img class="image" src="comp/BMW.webp" alt="BMW" loading="lazy" />
     </main>
+
+    <footer class="fade-footer">
+      © 2026, Alter Salts <span>Powered by Coding</span>
+    </footer>
 
     <script src="alter.js"></script>
   </body>
