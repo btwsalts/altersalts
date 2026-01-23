@@ -85,3 +85,56 @@ if (audio && audioBtn) {
     }
   });
 }
+
+// ================= STICKY NAV (BULLETPROOF) =================
+const nav = document.querySelector(".nav-options");
+
+if (nav) {
+  const navOffset = nav.offsetTop;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= navOffset - 12) {
+      nav.classList.add("is-sticky");
+    } else {
+      nav.classList.remove("is-sticky");
+    }
+  });
+}
+
+const cursorDot = document.querySelector(".cursor-dot");
+
+let x = window.innerWidth / 2;
+let y = window.innerHeight / 2;
+let targetX = x;
+let targetY = y;
+let animationFrame = null;
+
+const speed = 0.22; // smoothness (0.1 = slow, 0.3 = fast)
+
+function animate() {
+  x += (targetX - x) * speed;
+  y += (targetY - y) * speed;
+
+  cursorDot.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+
+  animationFrame = requestAnimationFrame(animate);
+}
+
+window.addEventListener("mousemove", (e) => {
+  targetX = e.clientX;
+  targetY = e.clientY;
+
+  cursorDot.style.opacity = "1";
+
+  if (!animationFrame) {
+    animationFrame = requestAnimationFrame(animate);
+  }
+});
+
+window.addEventListener("mouseleave", () => {
+  cursorDot.style.opacity = "0";
+});
+
+window.addEventListener("blur", () => {
+  cursorDot.style.opacity = "0";
+});
