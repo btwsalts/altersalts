@@ -2,13 +2,105 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: monospace, Arial, sans-serif;
+  font-family: monospace;
 }
 
 body {
   background-color: black;
   color: white;
   text-align: center;
+}
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+/* Hide on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot {
+    display: none;
+  }
+}
+
+/* ================= NAV GLASS PILL ================= */
+
+.nav-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  /* Subtle depth */
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.18),
+    0 6px 18px rgba(0, 0, 0, 0.35);
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.25s ease;
+}
+
+/* Hover / Focus enhancement */
+.options:hover .nav-glass {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 10px 26px rgba(0, 0, 0, 0.55);
+  transform: translateY(-2px);
+}
+
+/* Active / Click feedback */
+.options:active .nav-glass {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.18),
+    0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+/* Icon polish */
+.nav-glass i {
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+/* Text polish */
+.nav-glass span {
+  line-height: 1;
+}
+
+/* Touch devices: remove lift */
+@media (hover: none) {
+  .options:hover .nav-glass {
+    transform: none;
+  }
 }
 
 [cite_start]/* Update these sections in style.css [cite: 1] */
@@ -125,25 +217,41 @@ body {
   bottom: 20px;
   right: 20px;
 
-  padding: 10px 16px;
-  border-radius: 999px;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 
-  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  /* GLASS EFFECT (same as nav) */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* DEPTH */
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.18),
+    0 6px 18px rgba(0, 0, 0, 0.45);
+
   color: #ffffff;
   font-size: 14px;
   font-weight: 500;
 
   cursor: pointer;
-  z-index: 10;
+  z-index: 9999;
   overflow: hidden;
 
   /* TEXT GLOW */
   text-shadow:
-    0 0 6px rgba(255, 255, 255, 0.5),
-    0 0 14px rgba(255, 255, 255, 0.5);
+    0 0 6px rgba(255, 255, 255, 0.55),
+    0 0 14px rgba(255, 255, 255, 0.55);
 
-  transition: all 0.3s ease;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.25s ease;
 }
 
 /* 🔮 GLOW BEHIND THE BUTTON */
@@ -156,14 +264,23 @@ body {
   z-index: -1;
 }
 
-/* ✨ Hover – stronger glow */
-#audioToggle:hover::before {
-  filter: blur(18px);
-  opacity: 1;
+#audioToggle:hover {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 10px 26px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
 }
 
 #audioToggle:hover {
   transform: translateY(-2px);
+}
+
+#audioToggle:active {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.18),
+    0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
 /* ---------- SPLASH SCREEN ---------- */
@@ -189,6 +306,10 @@ body {
     letter-spacing: 0;
   }
 
+  .copyright {
+    color: rgb(128, 128, 128, 0.5);
+  }
+
   /* START SOLID WHITE */
   background-color: rgba(255, 255, 255, 1);
 
@@ -209,7 +330,7 @@ body {
   letter-spacing: 0.35em;
   color: grey;
 
-  animation: textFade 3.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: textFade 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* ---------- ANIMATIONS ---------- */
@@ -260,10 +381,17 @@ body {
 
 /* Header */
 .topbar {
-  max-width: 1700px;
+  max-width: 100%;
   margin: auto;
-  height: 350px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 35%);
+  padding-bottom: 10px; /* keeps spacing */
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.75) 30%,
+    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .header-graphics img {
@@ -283,31 +411,33 @@ body {
 
 /* Navigation */
 .nav-options {
+  position: relative;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
   gap: 30px;
-  font-weight: bold;
+  white-space: nowrap;
+
+  margin: 20px 0;
+  transition:
+    transform 0.35s ease,
+    backdrop-filter 0.35s ease;
+}
+
+.nav-options.is-sticky {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
 }
 
 .options {
   display: flex;
   align-items: center;
   font-size: 24px;
-  gap: 6px;
+  gap: 50px;
   color: white;
   text-decoration: none;
-  transition: font-size 0.3s ease;
-}
-
-.options:hover {
-  font-size: 22px;
-}
-
-/* Divider */
-.divider {
-  font-size: 30px;
 }
 
 /* Title */
@@ -344,7 +474,7 @@ img {
 
 .image:hover,
 .image2:hover {
-  height: 650px;
+  height: 625px;
 }
 
 .fade-footer {
