@@ -21,26 +21,38 @@ function initCursor() {
     y += (targetY - y) * speed;
 
     cursorDot.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+    if (Math.abs(targetX - x) < 0.1 && Math.abs(targetY - y) < 0.1) {
+      animationFrame = null;
+      return;
+    }
+
     animationFrame = requestAnimationFrame(animate);
   }
 
-  window.addEventListener("mousemove", (e) => {
-    targetX = e.clientX;
-    targetY = e.clientY;
-    cursorDot.style.opacity = "1";
+  window.addEventListener(
+    "mousemove",
+    (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      cursorDot.style.opacity = "1";
 
-    if (!animationFrame) {
-      animationFrame = requestAnimationFrame(animate);
+      if (!animationFrame) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    },
+    { passive: true }
+  );
+
+  const stopCursor = () => {
+    cursorDot.style.opacity = "0";
+    if (animationFrame) {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = null;
     }
-  });
+  };
 
-  window.addEventListener("mouseleave", () => {
-    cursorDot.style.opacity = "0";
-  });
-
-  window.addEventListener("blur", () => {
-    cursorDot.style.opacity = "0";
-  });
+  window.addEventListener("mouseleave", stopCursor);
+  window.addEventListener("blur", stopCursor);
 }
 
 if (document.readyState === "loading") {
