@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Me</title>
+    <link rel="icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <h1>Contact Me</h1>
+        <p class="lead">Share your details below and I will get back to you.</p>
+      </header>
+
+      <section class="list">
+        <h4>Get In Touch</h4>
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/mqelrggl"
+          method="post"
+        >
+          <label class="field">
+            <span class="field-label">Name</span>
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label class="field">
+            <span class="field-label">Email</span>
+            <input
+              type="email"
+              name="email"
+              placeholder="you@email.com"
+              required
+            />
+          </label>
+          <label class="field">
+            <span class="field-label">Phone Number</span>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="+1 555 000 0000"
+              required
+            />
+          </label>
+          <div class="cta">
+            <button class="btn" type="submit">Send</button>
+            <a class="btn alt" href="index.html">Back</a>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
