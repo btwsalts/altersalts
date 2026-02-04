@@ -33,14 +33,11 @@ html {
   transition: opacity 120ms ease;
 }
 
-/* Hide on touch devices */
 @media (hover: none) and (pointer: coarse) {
   .cursor-dot {
     display: none;
   }
 }
-
-/* ================= NAV GLASS PILL ================= */
 
 .nav-glass {
   display: inline-flex;
@@ -50,14 +47,12 @@ html {
   padding: 10px 16px;
   border-radius: 999px;
 
-  /* Glass effect */
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
   border: 1px solid rgba(255, 255, 255, 0.25);
 
-  /* Subtle depth */
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.18),
     0 6px 18px rgba(0, 0, 0, 0.35);
@@ -68,7 +63,6 @@ html {
     transform 0.25s ease;
 }
 
-/* Hover / Focus enhancement */
 .options:hover .nav-glass {
   background: rgba(255, 255, 255, 0.14);
   box-shadow:
@@ -77,7 +71,6 @@ html {
   transform: translateY(-2px);
 }
 
-/* Active / Click feedback */
 .options:active .nav-glass {
   transform: translateY(0);
   box-shadow:
@@ -85,25 +78,20 @@ html {
     0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
-/* Icon polish */
 .nav-glass i {
   font-size: 0.95em;
   opacity: 0.9;
 }
 
-/* Text polish */
 .nav-glass span {
   line-height: 1;
 }
 
-/* Touch devices: remove lift */
 @media (hover: none) {
   .options:hover .nav-glass {
     transform: none;
   }
 }
-
-[cite_start]/* Update these sections in style.css [cite: 1] */
 
 #password-screen {
   position: fixed;
@@ -114,9 +102,8 @@ html {
   align-items: center;
   z-index: 10000;
 
-  /* Start invisible */
   opacity: 0;
-  transition: opacity 1.2s ease; /* Longer duration for a smoother ease-in */
+  transition: opacity 1.2s ease;
 }
 
 .password-box {
@@ -129,12 +116,10 @@ html {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   width: 280px;
 
-  /* Optional: Slight slide-up effect */
   transform: translateY(10px);
   transition: transform 3.8s ease;
 }
 
-/* Class to trigger the ease-in */
 #password-screen.fade-in {
   opacity: 1;
 }
@@ -143,14 +128,11 @@ html {
   transform: translateY(0);
 }
 
-/* ---------------- PASSWORD SCREEN ---------------- */
-/* Add this to your style.css */
 #site-content {
-  display: none; /* Ensure it doesn't exist until password is correct */
+  display: none;
   opacity: 0;
 }
 
-/* Ensure password screen is ready and visible behind the splash */
 #password-screen {
   position: fixed;
   inset: 0;
@@ -158,13 +140,12 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9998; /* Just below splash */
-  opacity: 1; /* Start at 1 so it's waiting behind the splash */
+  z-index: 9998;
+  opacity: 1;
 }
 
 #splash {
-  /* ... keep your other settings ... */
-  z-index: 9999; /* Highest priority */
+  z-index: 9999;
 }
 
 #password-screen.fade-out {
@@ -207,7 +188,6 @@ html {
   text-align: center;
 }
 
-/* ---------------- SPLASH VISIBILITY ---------------- */
 .hidden {
   visibility: hidden;
 }
@@ -225,12 +205,10 @@ html {
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.25);
 
-  /* GLASS EFFECT (same as nav) */
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
-  /* DEPTH */
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.18),
     0 6px 18px rgba(0, 0, 0, 0.45);
@@ -243,7 +221,6 @@ html {
   z-index: 9999;
   overflow: hidden;
 
-  /* TEXT GLOW */
   text-shadow:
     0 0 6px rgba(255, 255, 255, 0.55),
     0 0 14px rgba(255, 255, 255, 0.55);
@@ -254,7 +231,6 @@ html {
     transform 0.25s ease;
 }
 
-/* 🔮 GLOW BEHIND THE BUTTON */
 #audioToggle::before {
   content: "";
   position: absolute;
@@ -283,20 +259,18 @@ html {
     0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
-/* ---------- SPLASH SCREEN ---------- */
 #splash {
   position: fixed;
   inset: 0;
 
   .splash-text {
-    position: relative; /* anchor for copyright */
+    position: relative;
     font-size: clamp(28px, 6vw, 72px);
     font-weight: 900;
     letter-spacing: 0.35em;
     color: grey;
   }
 
-  /* small top-right copyright */
   .splash-text .copyright {
     position: absolute;
     top: -0.6em;
@@ -310,7 +284,6 @@ html {
     color: rgb(128, 128, 128, 0.5);
   }
 
-  /* START SOLID WHITE */
   background-color: rgba(255, 255, 255, 1);
 
   display: flex;
@@ -320,7 +293,6 @@ html {
   z-index: 9999;
   pointer-events: none;
 
-  /* Animate BACKGROUND, not opacity */
   animation: splashBgFade 3.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
@@ -333,9 +305,6 @@ html {
   animation: textFade 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* ---------- ANIMATIONS ---------- */
-
-/* THIS is what reveals the site behind */
 @keyframes splashBgFade {
   0% {
     background-color: rgba(255, 255, 255, 1);
@@ -369,7 +338,6 @@ html {
   }
 }
 
-/* Background Video */
 #kvid {
   position: fixed;
   inset: 0;
@@ -379,11 +347,10 @@ html {
   z-index: -1;
 }
 
-/* Header */
 .topbar {
   max-width: 100%;
   margin: auto;
-  padding-bottom: 10px; /* keeps spacing */
+  padding-bottom: 10px;
 
   background: linear-gradient(
     to bottom,
@@ -409,13 +376,14 @@ html {
   margin-right: -45px;
 }
 
-/* Navigation */
 .nav-options {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  white-space: nowrap;
+  gap: 16px 22px;
+  padding: 0 16px;
+  white-space: normal;
 
   margin: 20px 0;
   transition:
@@ -434,36 +402,38 @@ html {
 .options {
   display: flex;
   align-items: center;
-  font-size: 24px;
-  gap: 50px;
+  font-size: clamp(12px, 1.6vw, 20px);
+  gap: 10px;
   color: white;
   text-decoration: none;
 }
 
-/* Title */
 .title {
   font-size: 30px;
   animation: h1Animation 1s ease-in-out;
 }
 
-/* Gallery */
 .tail {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px;
+  padding: 0 16px 80px;
 }
 
 img {
-  margin: 25px;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
   border-radius: 10px;
   border: 4px solid whitesmoke;
   box-shadow: 0 0 15px #fff;
 }
 
-/* Image Animations */
 .image,
 .image2 {
-  height: 600px;
+  width: min(100%, 420px);
+  height: auto;
   transition: all 1s ease;
   animation: float 2s ease-in-out infinite alternate;
 }
@@ -474,7 +444,7 @@ img {
 
 .image:hover,
 .image2:hover {
-  height: 625px;
+  transform: scale(1.03);
 }
 
 .fade-footer {
@@ -511,7 +481,7 @@ img {
   letter-spacing: 0.3px;
 
   z-index: 9999;
-  pointer-events: none; /* allows clicks through if needed */
+  pointer-events: none;
   text-shadow: 0 1px 6px rgba(255, 255, 255, 0.15);
 }
 
@@ -539,19 +509,17 @@ img {
   }
 }
 
-/* ---------------- MEDIA QUERIES (UNCHANGED WIDTHS) ---------------- */
-
 @media (min-width: 0px) and (max-width: 600px) {
   .header-graphics img {
     height: 100px;
   }
   .image,
   .image2 {
-    height: 350px;
+    width: 100%;
   }
   .image:hover,
   .image2:hover {
-    height: 400px;
+    transform: none;
   }
   .divider {
     font-size: 8px;
@@ -560,10 +528,10 @@ img {
     font-size: 20px;
   }
   .options {
-    font-size: 7px;
+    font-size: 12px;
   }
   .options:hover {
-    font-size: 6px;
+    font-size: 12px;
   }
 }
 
@@ -573,11 +541,11 @@ img {
   }
   .image,
   .image2 {
-    height: 200px;
+    width: min(100%, 320px);
   }
   .image:hover,
   .image2:hover {
-    height: 250px;
+    transform: scale(1.02);
   }
   .divider {
     font-size: 12px;
@@ -586,9 +554,9 @@ img {
     font-size: 20px;
   }
   .options {
-    font-size: 16px;
+    font-size: 14px;
   }
   .options:hover {
-    font-size: 15px;
+    font-size: 14px;
   }
 }
