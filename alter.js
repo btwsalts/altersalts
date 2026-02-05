@@ -69,42 +69,19 @@ if (input) {
   });
 }
 
-// ================= RAIN AUDIO =================
-const audio = document.getElementById("rainAudio");
-const audioBtn = document.getElementById("audioToggle");
-
-if (audio && audioBtn) {
-  audio.volume = 0.2;
-  audioBtn.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play();
-      audioBtn.textContent = "🔇 Stop Rain";
-    } else {
-      audio.pause();
-      audioBtn.textContent = "🔊 Make it Rain";
-    }
-  });
-}
-
 // ================= STICKY NAV (BULLETPROOF) =================
 const nav = document.querySelector(".nav-options");
 
 if (nav) {
   const navOffset = nav.offsetTop;
-  let navTicking = false;
 
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (navTicking) return;
-      navTicking = true;
-      requestAnimationFrame(() => {
-        nav.classList.toggle("is-sticky", window.scrollY >= navOffset - 12);
-        navTicking = false;
-      });
-    },
-    { passive: true }
-  );
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= navOffset - 12) {
+      nav.classList.add("is-sticky");
+    } else {
+      nav.classList.remove("is-sticky");
+    }
+  });
 }
 
 const cursorDot = document.querySelector(".cursor-dot");
@@ -123,38 +100,24 @@ function animate() {
 
   cursorDot.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
 
-  if (Math.abs(targetX - x) < 0.1 && Math.abs(targetY - y) < 0.1) {
-    animationFrame = null;
-    return;
-  }
-
   animationFrame = requestAnimationFrame(animate);
 }
 
-if (cursorDot) {
-  window.addEventListener(
-    "mousemove",
-    (e) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
+window.addEventListener("mousemove", (e) => {
+  targetX = e.clientX;
+  targetY = e.clientY;
 
-      cursorDot.style.opacity = "1";
+  cursorDot.style.opacity = "1";
 
-      if (!animationFrame) {
-        animationFrame = requestAnimationFrame(animate);
-      }
-    },
-    { passive: true }
-  );
+  if (!animationFrame) {
+    animationFrame = requestAnimationFrame(animate);
+  }
+});
 
-  const stopCursor = () => {
-    cursorDot.style.opacity = "0";
-    if (animationFrame) {
-      cancelAnimationFrame(animationFrame);
-      animationFrame = null;
-    }
-  };
+window.addEventListener("mouseleave", () => {
+  cursorDot.style.opacity = "0";
+});
 
-  window.addEventListener("mouseleave", stopCursor);
-  window.addEventListener("blur", stopCursor);
-}
+window.addEventListener("blur", () => {
+  cursorDot.style.opacity = "0";
+});
