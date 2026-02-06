@@ -15,16 +15,21 @@
     <div class="cursor-dot" aria-hidden="true"></div>
     <div class="caution-tape" aria-hidden="true"></div>
     <main class="page">
-      <header>
-        <h1>Muhammad Umer</h1>
-        <p class="lead">
-          I Specialize in Graphic Designing, Video Editing, Web Development, and
-          UI & UX.
-        </p>
-        <div class="cta">
-          <a class="btn" href="Aboutme.html">About Me</a>
-          <a class="btn" href="work.html">View Work</a>
-          <a class="btn alt" href="contact.html">Contact</a>
+      <header class="hero">
+        <div class="hero-text">
+          <h1>Muhammad Umer</h1>
+          <p class="lead">
+            I Specialize in Graphic Designing, Video Editing, Web Development,
+            and UI & UX.
+          </p>
+          <div class="cta">
+            <a class="btn" href="Aboutme.html">About Me</a>
+            <a class="btn" href="work.html">View Work</a>
+            <a class="btn alt" href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="car-viewer" aria-label="3D car model viewer">
+          <div class="car-canvas" id="car-viewer"></div>
         </div>
       </header>
 
@@ -78,74 +83,74 @@
           <div class="logo-carousel__track">
             <img
               class="logo-carousel__logo"
-              src="Logos/The-Wheelkart-logo.webp"
+              src="logos/The-Wheelkart-logo.webp"
               alt="The Wheelkart"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/Apex-logo.png"
+              src="logos/Apex-logo.png"
               alt="Apex"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/Apex-Medisuite-logo.png"
+              src="logos/Apex-Medisuite-logo.png"
               alt="Apex Medisuite"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/Zaccha.webp"
+              src="logos/Zaccha.webp"
               alt="Zaccha"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/Goflare.png"
+              src="logos/Goflare.png"
               alt="Goflare"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/thebedworld.webp"
+              src="logos/thebedworld.webp"
               alt="The Bedworld"
             />
-            <img class="logo-carousel__logo" src="Logos/nmic.png" alt="NMIC" />
+            <img class="logo-carousel__logo" src="logos/nmic.png" alt="NMIC" />
             <img
               class="logo-carousel__logo"
-              src="Logos/guardian.svg"
+              src="logos/guardian.svg"
               alt="Guardian"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/The-Wheelkart-logo.webp"
+              src="logos/The-Wheelkart-logo.webp"
               alt="The Wheelkart"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/Apex-logo.png"
+              src="logos/Apex-logo.png"
               alt="Apex"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/Apex-Medisuite-logo.png"
+              src="logos/Apex-Medisuite-logo.png"
               alt="Apex Medisuite"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/Zaccha.webp"
+              src="logos/Zaccha.webp"
               alt="Zaccha"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/Goflare.png"
+              src="logos/Goflare.png"
               alt="Goflare"
             />
             <img
               class="logo-carousel__logo"
-              src="Logos/thebedworld.webp"
+              src="logos/thebedworld.webp"
               alt="The Bedworld"
             />
-            <img class="logo-carousel__logo" src="Logos/nmic.png" alt="NMIC" />
+            <img class="logo-carousel__logo" src="logos/nmic.png" alt="NMIC" />
             <img
               class="logo-carousel__logo"
-              src="Logos/guardian.svg"
+              src="logos/guardian.svg"
               alt="Guardian"
             />
           </div>
@@ -166,5 +171,115 @@
       <footer>Powered by Coding - 2026</footer>
     </main>
     <script src="cursor.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.162.0/build/three.module.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "https://unpkg.com/three@0.162.0/examples/jsm/controls/OrbitControls.js";
+      import { GLTFLoader } from "https://unpkg.com/three@0.162.0/examples/jsm/loaders/GLTFLoader.js";
+
+      const container = document.getElementById("car-viewer");
+      if (container) {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+        const renderer = new THREE.WebGLRenderer({
+          antialias: true,
+          alpha: true,
+        });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+        container.appendChild(renderer.domElement);
+
+        const ambient = new THREE.HemisphereLight(0xffffff, 0x222222, 1.1);
+        scene.add(ambient);
+        const key = new THREE.DirectionalLight(0xffffff, 1.1);
+        key.position.set(4, 6, 5);
+        scene.add(key);
+        const fill = new THREE.DirectionalLight(0xffffff, 0.6);
+        fill.position.set(-4, 2, 3);
+        scene.add(fill);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.08;
+        controls.enablePan = false;
+        controls.enableZoom = false;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.2;
+
+        const loader = new GLTFLoader();
+        loader.setPath("car3d/");
+
+        loader.load(
+          "car.gltf",
+          (gltf) => {
+            const model = gltf.scene;
+            scene.add(model);
+
+            const box = new THREE.Box3().setFromObject(model);
+            const size = new THREE.Vector3();
+            box.getSize(size);
+            const center = new THREE.Vector3();
+            box.getCenter(center);
+            model.position.sub(center);
+
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = 4.0 / Math.max(maxDim, 0.001);
+            model.scale.setScalar(scale);
+
+            const scaledBox = new THREE.Box3().setFromObject(model);
+            const scaledSize = new THREE.Vector3();
+            scaledBox.getSize(scaledSize);
+            const scaledCenter = new THREE.Vector3();
+            scaledBox.getCenter(scaledCenter);
+            model.position.sub(scaledCenter);
+            model.position.x -= scaledSize.x * 0.12;
+
+            const scaledMax = Math.max(
+              scaledSize.x,
+              scaledSize.y,
+              scaledSize.z,
+            );
+            const cameraDistance = scaledMax * 0.9;
+            camera.position.set(
+              cameraDistance,
+              scaledMax * 0.05,
+              cameraDistance,
+            );
+            camera.lookAt(0, 0, 0);
+            controls.target.set(0, 0, 0);
+            controls.update();
+          },
+          (error) => {
+            console.error("Error loading car model:", error);
+          },
+        );
+
+        const resize = () => {
+          const { width, height } = container.getBoundingClientRect();
+          const safeWidth = Math.max(width, 1);
+          const safeHeight = Math.max(height, 1);
+          renderer.setSize(safeWidth, safeHeight);
+          camera.aspect = safeWidth / safeHeight;
+          camera.updateProjectionMatrix();
+        };
+
+        resize();
+        window.addEventListener("resize", resize);
+
+        const animate = () => {
+          requestAnimationFrame(animate);
+          controls.update();
+          renderer.render(scene, camera);
+        };
+
+        animate();
+      }
+    </script>
   </body>
 </html>
