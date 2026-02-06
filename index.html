@@ -28,7 +28,7 @@
             <a class="btn alt" href="contact.html">Contact</a>
           </div>
         </div>
-        <div class="car-viewer" aria-label="3D car model viewer">
+        <div class="car-viewer" aria-label="3D computer model viewer">
           <div class="car-canvas" id="car-viewer"></div>
         </div>
       </header>
@@ -213,10 +213,9 @@
         controls.autoRotateSpeed = 1.2;
 
         const loader = new GLTFLoader();
-        loader.setPath("car3d/");
 
         loader.load(
-          "car.gltf",
+          "computer.glb",
           (gltf) => {
             const model = gltf.scene;
             scene.add(model);
@@ -245,7 +244,7 @@
               scaledSize.y,
               scaledSize.z,
             );
-            const cameraDistance = scaledMax * 0.9;
+            const cameraDistance = scaledMax * 1.35;
             camera.position.set(
               cameraDistance,
               scaledMax * 0.05,
@@ -255,9 +254,10 @@
             controls.target.set(0, 0, 0);
             controls.update();
           },
+          undefined,
           (error) => {
-            console.error("Error loading car model:", error);
-          },
+            console.error("Error loading computer model:", error);
+          }
         );
 
         const resize = () => {
