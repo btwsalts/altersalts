@@ -31,6 +31,9 @@
         </div>
         <div class="car-viewer" aria-label="3D computer model viewer">
           <div class="car-canvas" id="car-viewer"></div>
+          <div class="car-status" id="car-status" aria-live="polite">
+            Loading 3D model…
+          </div>
         </div>
       </header>
 
@@ -185,14 +188,16 @@
       import { GLTFLoader } from "https://unpkg.com/three@0.162.0/examples/jsm/loaders/GLTFLoader.js";
 
       const container = document.getElementById("car-viewer");
+      const status = document.getElementById("car-status");
       if (container) {
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
         const renderer = new THREE.WebGLRenderer({
           antialias: true,
           alpha: true,
+          powerPreference: "high-performance",
         });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         container.appendChild(renderer.domElement);
 
@@ -214,6 +219,23 @@
         controls.autoRotateSpeed = 1.2;
 
         const loader = new GLTFLoader();
+        let loadingTimer = null;
+        const markLoaded = () => {
+          if (!status) return;
+          status.classList.add("is-hidden");
+          if (loadingTimer) {
+            clearTimeout(loadingTimer);
+            loadingTimer = null;
+          }
+        };
+        const markSlow = () => {
+          if (!status) return;
+          status.textContent = "Still loading…";
+        };
+
+        if (status) {
+          loadingTimer = setTimeout(markSlow, 3500);
+        }
 
         loader.load(
           "computer.glb",
@@ -254,10 +276,14 @@
             camera.lookAt(0, 0, 0);
             controls.target.set(0, 0, 0);
             controls.update();
+            markLoaded();
           },
           undefined,
           (error) => {
             console.error("Error loading computer model:", error);
+            if (status) {
+              status.textContent = "Unable to load the 3D model.";
+            }
           },
         );
 
