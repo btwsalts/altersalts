@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV</title>
+    <link rel="icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cv.css" />
+  </head>
+  <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="caution-tape" aria-hidden="true"></div>
+    <main class="page">
+      <header class="hero">
+        <div class="hero-text">
+          <h1>Curriculum Vitae</h1>
+          <p class="lead">View my resume below or download a copy for later.</p>
+        </div>
+        <div class="cta">
+          <a class="btn" href="index.html">Home</a>
+          <a class="btn" href="work.html">View Work</a>
+          <a class="btn alt" href="contact.html">Contact</a>
+          <a class="btn alt" href="uuhammadumerresume.pdf" download>
+            Download CV
+          </a>
+        </div>
+      </header>
+
+      <section class="pdf-card">
+        <div class="meta">CV</div>
+        <div class="pdf-viewer">
+          <iframe
+            src="uuhammadumerresume.pdf"
+            title="Resume PDF"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <p class="pdf-note">
+          If the PDF does not display, use the download button above.
+        </p>
+      </section>
+
+      <footer>Powered by Coding - 2026</footer>
+    </main>
+    <script src="cursor.js"></script>
+  </body>
+</html>

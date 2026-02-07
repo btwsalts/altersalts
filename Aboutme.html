@@ -1,9 +1,254 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About-Me</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me</title>
+    <link rel="icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="about.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="caution-tape" aria-hidden="true"></div>
+    <main class="page">
+      <header class="hero">
+        <div class="hero-text">
+          <h1>ABOUT ME</h1>
+          <p class="lead">
+            I am a multidisciplinary creative specializing in graphic design,
+            video editing, web development, and UI & UX, delivering clean,
+            dependable solutions for modern brands.
+          </p>
+          <div class="cta">
+            <a class="btn" href="index.html">Home</a>
+            <a class="btn" href="work.html">View Work</a>
+            <a class="btn alt" href="cv.html">View CV</a>
+            <a class="btn alt" href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="car-viewer" aria-label="3D computer model viewer">
+          <div class="car-canvas" id="car-viewer"></div>
+        </div>
+      </header>
+
+      <section class="split">
+        <article class="card">
+          <div class="meta">Profile</div>
+          <h3>Professional Summary</h3>
+          <p>
+            I work with brands and organizations to craft cohesive visual
+            systems, polished edits, and modern web experiences. My process is
+            structured, detail-oriented, and focused on clarity, consistency,
+            and outcomes that support real business goals. Each engagement
+            begins with understanding the audience and objectives, followed by
+            design and production that align with the brand voice. I balance
+            creativity with dependable execution, ensuring timelines are met and
+            deliverables are production-ready. Across graphic design, video
+            editing, web development, and UI & UX, I aim to deliver work that
+            feels intentional, high quality, and easy to use.
+          </p>
+        </article>
+        <article class="card">
+          <div class="meta">Toolkit</div>
+          <h3>Tools & Skills</h3>
+          <ul class="skills">
+            <li>Adobe Photoshop</li>
+            <li>Adobe Illustrator</li>
+            <li>CapCut</li>
+            <li>Figma</li>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <div class="meta">Base</div>
+          <h3>Islamabad, Pakistan</h3>
+          <p>Available for freelance projects.</p>
+        </article>
+        <article class="card">
+          <div class="meta">Core Focus</div>
+          <h3>Design + Digital</h3>
+          <p>Visual identity, motion edits, and responsive web experiences.</p>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <div class="meta">Service-01</div>
+          <h3>Graphic Designing</h3>
+          <p>
+            Bold visuals, brand assets, and social creatives that stay sharp and
+            consistent.
+          </p>
+        </article>
+        <article class="card">
+          <div class="meta">Service-02</div>
+          <h3>Video Editing</h3>
+          <p>
+            Clean cuts, pacing, and polish for reels, promos, and long-form
+            content.
+          </p>
+        </article>
+        <article class="card">
+          <div class="meta">Service-03</div>
+          <h3>Web Development</h3>
+          <p>
+            Fast, responsive websites built with modern structure, performance,
+            and detail.
+          </p>
+        </article>
+        <article class="card">
+          <div class="meta">Service-04</div>
+          <h3>UI & UX</h3>
+          <p>
+            User-first interfaces with clean layouts, clear flows, and a focus
+            on real usability.
+          </p>
+        </article>
+      </section>
+
+      <section class="list">
+        <h4>Selected Clients</h4>
+        <ul>
+          <li>Health Zaccha</li>
+          <li>TheWheelKart</li>
+          <li>Apex Consultants</li>
+          <li>Apex MediSuite</li>
+          <li>GoFlare</li>
+          <li>TheBedWorld</li>
+          <li>NewMarket Islamic Centre</li>
+          <li>Guardian Safety Supply</li>
+        </ul>
+      </section>
+
+      <section class="list">
+        <h4>Contact</h4>
+        <ul>
+          <li>Email: umergaming12@gmail.com</li>
+          <li>Instagram: @btwsalts</li>
+        </ul>
+      </section>
+
+      <footer>Powered by Coding - 2026</footer>
+    </main>
+    <script src="cursor.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.162.0/build/three.module.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "https://unpkg.com/three@0.162.0/examples/jsm/controls/OrbitControls.js";
+      import { GLTFLoader } from "https://unpkg.com/three@0.162.0/examples/jsm/loaders/GLTFLoader.js";
+
+      const container = document.getElementById("car-viewer");
+      if (container) {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+        const renderer = new THREE.WebGLRenderer({
+          antialias: true,
+          alpha: true,
+        });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+        container.appendChild(renderer.domElement);
+
+        const ambient = new THREE.HemisphereLight(0xffffff, 0x222222, 1.1);
+        scene.add(ambient);
+        const key = new THREE.DirectionalLight(0xffffff, 1.1);
+        key.position.set(4, 6, 5);
+        scene.add(key);
+        const fill = new THREE.DirectionalLight(0xffffff, 0.6);
+        fill.position.set(-4, 2, 3);
+        scene.add(fill);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.08;
+        controls.enablePan = false;
+        controls.enableZoom = false;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.2;
+
+        const loader = new GLTFLoader();
+
+        loader.load(
+          "scroll.glb",
+          (gltf) => {
+            const model = gltf.scene;
+            scene.add(model);
+
+            const box = new THREE.Box3().setFromObject(model);
+            const size = new THREE.Vector3();
+            box.getSize(size);
+            const center = new THREE.Vector3();
+            box.getCenter(center);
+            model.position.sub(center);
+
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = 4.0 / Math.max(maxDim, 0.001);
+            model.scale.setScalar(scale);
+
+            const scaledBox = new THREE.Box3().setFromObject(model);
+            const scaledSize = new THREE.Vector3();
+            scaledBox.getSize(scaledSize);
+            const scaledCenter = new THREE.Vector3();
+            scaledBox.getCenter(scaledCenter);
+            model.position.sub(scaledCenter);
+            model.position.x -= scaledSize.x * 0.12;
+            model.rotation.x = 0.35;
+
+            const scaledMax = Math.max(
+              scaledSize.x,
+              scaledSize.y,
+              scaledSize.z,
+            );
+            const cameraDistance = scaledMax * 1.35;
+            camera.position.set(
+              cameraDistance,
+              scaledMax * 0.05,
+              cameraDistance,
+            );
+            camera.lookAt(0, 0, 0);
+            controls.target.set(0, 0, 0);
+            controls.update();
+          },
+          undefined,
+          (error) => {
+            console.error("Error loading computer model:", error);
+          },
+        );
+
+        const resize = () => {
+          const { width, height } = container.getBoundingClientRect();
+          const safeWidth = Math.max(width, 1);
+          const safeHeight = Math.max(height, 1);
+          renderer.setSize(safeWidth, safeHeight);
+          camera.aspect = safeWidth / safeHeight;
+          camera.updateProjectionMatrix();
+        };
+
+        resize();
+        window.addEventListener("resize", resize);
+
+        const animate = () => {
+          requestAnimationFrame(animate);
+          controls.update();
+          renderer.render(scene, camera);
+        };
+
+        animate();
+      }
+    </script>
+  </body>
 </html>
