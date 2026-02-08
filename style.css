@@ -118,6 +118,26 @@ header {
   display: block;
 }
 
+.car-status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1f1f1f;
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.car-status.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .eyebrow {
   font-family: "Space Mono", monospace;
   font-size: 13px;
