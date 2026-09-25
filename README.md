@@ -171,3 +171,58 @@ The 3D viewer is particularly useful as a portfolio differentiator because it de
 ## Author
 
 Built by **Muhammad Umer / btwsalts**.
+
+---
+
+## ✦ Visual Showcase
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/btwsalts/altersalts/main/comp/Urban%20Decay%20%28white%29%20copy.webp" alt="AlterSalts" width="90%">
+</p>
+
+<table>
+<tr>
+<td><img src="https://raw.githubusercontent.com/btwsalts/altersalts/main/comp/Porsche%20Poster%20copy.webp" alt="Porsche poster"></td>
+<td><img src="https://raw.githubusercontent.com/btwsalts/altersalts/main/comp/Anime%20Poster%20copy.webp" alt="Anime poster"></td>
+</tr>
+<tr>
+<td><img src="https://raw.githubusercontent.com/btwsalts/altersalts/main/comp/BMW.webp" alt="BMW design"></td>
+<td><img src="https://raw.githubusercontent.com/btwsalts/altersalts/main/comp/Batman%20Poster%20copy.webp" alt="Batman poster"></td>
+</tr>
+</table>
+
+## 🛠️ Stack at a Glance
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=threedotjs&logoColor=white)
+![WebGL](https://img.shields.io/badge/WebGL-990000?style=flat-square&logo=webgl&logoColor=white)
+
+## 🧊 3D Pipeline
+
+~~~mermaid
+flowchart LR
+A[computer.glb] --> B[GLTFLoader]
+B --> C[Three.js Scene]
+C --> D[Camera + Lighting]
+D --> E[WebGL Renderer]
+F[OrbitControls] --> C
+E --> G[Interactive Browser Experience]
+~~~
+
+## 💡 What Makes It Interesting
+
+- Real-time 3D rather than a static hero image
+- Automatic model sizing and centering
+- OrbitControls for user interaction
+- Custom cursor behaviour
+- Creative portfolio assets integrated into the same experience
+- Multi-page portfolio architecture
+
+<details>
+<summary><strong>Portfolio talking points</strong></summary>
+
+This project is useful for demonstrating that you can combine creative design with technical frontend work. The Three.js section provides a strong example of working with external libraries, 3D assets, cameras, lighting and browser rendering.
+
+</details>
